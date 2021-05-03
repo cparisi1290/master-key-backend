@@ -5,12 +5,14 @@ class Api::V1::PropertiesController < ApplicationController
   def index
     @properties = Property.all
 
-    render json: @properties
+    properties_json = PropertySerializer.new(@properties).serialized_json
+    render json: properties_json
   end
 
   # GET /properties/1
   def show
-    render json: @property
+    property_json = PropertySerializer.new(@property).serialized_json
+    render json: property_json
   end
 
   # POST /properties

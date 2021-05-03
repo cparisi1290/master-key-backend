@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  room: MyString
+  brokedn_item: MyString
+  cost: 1.5
+  date_completed: 2021-05-03 13:16:46
+  closed?: false
+  property_id: 1
+
+two:
+  room: MyString
+  brokedn_item: MyString
+  cost: 1.5
+  date_completed: 2021-05-03 13:16:46
+  closed?: false
+  property_id: 1

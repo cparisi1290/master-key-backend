@@ -5,12 +5,14 @@ class Api::V1::RepairsController < ApplicationController
   def index
     @repairs = Repair.all
 
-    render json: @repairs
+    repairs_json = RepairSerializer.new(@repairs).serialized_json
+    render json: repairs_json
   end
 
   # GET /repairs/1
   def show
-    render json: @repair
+    repair_json = RepairSerializer.new(@repair).serialized_json
+    render json: repair_json
   end
 
   # POST /repairs

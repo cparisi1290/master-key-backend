@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_181646) do
 
   create_table "repairs", force: :cascade do |t|
     t.string "room"
-    t.string "brokedn_item"
+    t.string "broken_item"
     t.float "cost"
     t.datetime "date_completed"
     t.boolean "closed?"

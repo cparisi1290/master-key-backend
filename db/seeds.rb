@@ -7,6 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # USERS
-# killua = User.create(name: "Killua", email: "killua@email.com", password: "password")
+killua = User.create(name: "Killua", email: "killua@email.com", password: "password")
 
-# gon = User.create(name: "Gon", email: "gon@email.com", password: "password")
+# PROPERTIES
+rancho_vista = Property.create(name: "Rancho Vista", address: "7141 E Rancho Vista Dr UNIT 6007", city: "Scottsdale", state: "AZ", zip: "85251", bedrooms: "2", bathrooms: "2", image: "https://photos.zillowstatic.com/fp/03617c7908c11cc0caaffab616f347e8-cc_ft_1152.jpg", occupied?: "yes", pets_allowed?: "yes", rent_amount: "2330",  user_id: 1)
+
+arcadia= Property.create(name: "Arcadia", address: "4351 N 36th St", city: "Phoenix", state: "AZ", zip: "85018", bedrooms: "3", bathrooms: "3", image: "https://photos.zillowstatic.com/fp/b2858d22981a3072f59c4fad836b363a-cc_ft_1152.jpg", occupied?: "yes", pets_allowed?: "yes", rent_amount: "2650",  user_id: 1)
+
+mark_way= Property.create(name: "Mark Way", address: "6231 E Mark Way UNIT 37", city: "Cave Creek", state: "AZ", zip: "85331", bedrooms: "2", bathrooms: "3", image: "https://photos.zillowstatic.com/fp/3e7bec43719af4f3ddf8de9da5a6cded-uncropped_scaled_within_1536_1152.webp", occupied?: "no", pets_allowed?: "no", rent_amount: "2100",  user_id: 1)
+

@@ -1,4 +1,4 @@
-class PropertiesController < ApplicationController
+class Api::V1::PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :update, :destroy]
 
   # GET /properties

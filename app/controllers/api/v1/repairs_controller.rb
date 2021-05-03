@@ -1,4 +1,4 @@
-class RepairsController < ApplicationController
+class Api::V1::RepairsController < ApplicationController
   before_action :set_repair, only: [:show, :update, :destroy]
 
   # GET /repairs

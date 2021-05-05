@@ -18,9 +18,16 @@ class Api::V1::SessionsController < ApplicationController
             render json: current_user
         else 
             render json:{
-                notice: "No one's logged in."
+                notice: "Not Logged In"
             }
         end 
+    end
+
+    def destroy
+        session.clear
+        render json: {
+            notice: "Successfully Logged Out"
+          }, status: :ok
     end
     
 end

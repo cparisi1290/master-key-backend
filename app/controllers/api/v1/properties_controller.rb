@@ -3,10 +3,18 @@ class Api::V1::PropertiesController < ApplicationController
 
   # GET /properties
   def index
-    @properties = Property.all
+    if logged_in?
+      @properties = current_user.properties
 
-    properties_json = PropertySerializer.new(@properties).serialized_json
-    render json: properties_json
+      properties_json = PropertySerializer.new(@properties).serialized_json
+      render json: properties_json
+    else
+      render json:{
+        error: "Must be logged in to view properties"
+      }
+
+    end
+
   end
 
   # GET /properties/1

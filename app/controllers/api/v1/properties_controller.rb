@@ -28,9 +28,12 @@ class Api::V1::PropertiesController < ApplicationController
     @property = Property.new(property_params)
 
     if @property.save
-      render json: @property, status: :created, location: @property
+      render json: PropertySerializer.new(@property), status: :created
     else
-      render json: @property.errors, status: :unprocessable_entity
+      error_response = {
+        error: @property.errors.full_messages.to_sentence
+      }
+      render json: error_response, status: :unprocessable_entity
     end
   end
 

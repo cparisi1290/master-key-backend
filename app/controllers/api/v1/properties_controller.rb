@@ -25,7 +25,7 @@ class Api::V1::PropertiesController < ApplicationController
 
   # POST /properties
   def create
-    @property = Property.new(property_params)
+    @property = current_user.properties.new(property_params)
 
     if @property.save
       render json: PropertySerializer.new(@property), status: :created
@@ -40,9 +40,12 @@ class Api::V1::PropertiesController < ApplicationController
   # PATCH/PUT /properties/1
   def update
     if @property.update(property_params)
-      render json: @property
+      render json: PropertySerializer.new(@property), status: :ok
     else
-      render json: @property.errors, status: :unprocessable_entity
+      error_response = {
+        error: @property.errors.full_messages.to_sentence
+      }
+      render json: error_response, status: :unprocessable_entity
     end
   end
 
@@ -59,6 +62,6 @@ class Api::V1::PropertiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def property_params
-      params.require(:property).permit(:name, :address, :city, :state, :zip, :bedrooms, :bathrooms, :image, :occupied?, :pets_allowed?, :rent_amount, :user_id)
+      params.require(:property).permit(:name, :address, :city, :state, :zip, :bedrooms, :bathrooms, :image, :occupied?, :pets_allowed?, :rent_amount)
     end
 end

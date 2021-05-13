@@ -51,7 +51,9 @@ class Api::V1::PropertiesController < ApplicationController
 
   # DELETE /properties/1
   def destroy
-    @property.destroy
+    if @property.destroy
+      render json: {data: "Property Successful Deleted"}, status: :ok 
+    end
   end
 
   private
